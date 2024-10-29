@@ -53,21 +53,34 @@ void atm() {
 
 int main() {
     int choice;
-    cout << "Seleccione una función:\n";
-    cout << "1. Calcular factorial\n";
-    cout << "2. Usar cajero automático\n";
-    cout << "Elija una opción: ";
-    cin >> choice;
+    bool running = true;
 
-    if (choice == 1) {
-        int num;
-        cout << "Ingrese un número: ";
-        cin >> num;
-        cout << "El factorial de " << num << " es " << factorial(num) << endl;
-    } else if (choice == 2) {
-        atm();
-    } else {
-        cout << "Opción inválida.\n";
+    while (running) {
+        cout << "Seleccione una función:\n";
+        cout << "1. Calcular factorial\n";
+        cout << "2. Usar cajero automático\n";
+        cout << "3. Salir\n";
+        cout << "Elija una opción: ";
+        cin >> choice;
+
+        switch (choice) {
+            case 1: {
+                int num;
+                cout << "Ingrese un número: ";
+                cin >> num;
+                cout << "El factorial de " << num << " es " << factorial(num) << endl;
+                break;
+            }
+            case 2:
+                atm();
+                break;
+            case 3:
+                running = false;
+                break;
+            default:
+                cout << "Opción inválida.\n";
+                break;
+        }
     }
 
     return 0;
